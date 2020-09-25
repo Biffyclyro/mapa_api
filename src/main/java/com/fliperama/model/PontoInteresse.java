@@ -6,14 +6,14 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "ponto_interesse")
 public class PontoInteresse {
     @Id
-    @Column(name = "id_ponto")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idPonto;
-    @Column(name = "nome_ponto", unique = true)
-    private String nomePonto;
+    private int id;
+    private String nome;
+    private String img;
     private String descricao;
+    private double lat;
+    private double lng;
 
 }
