@@ -2,7 +2,10 @@ package com.fliperama.controllers;
 
 import com.fliperama.model.PontoInteresse;
 import com.fliperama.repository.PontoRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -15,14 +18,13 @@ public class PontoController {
     }
 
     @GetMapping
-    String teste(){
-        final var coords = this.pontoRepository.findAllCoordenadas();
-
-        return "{\"idPonto\": 1, \"img\": \"images/poli.jpg\", \"nome\":\"teste\", \"descricao\": \"teste\"}" ;
+    List<PontoInteresse> teste(){
+        return this.pontoRepository.findAll();
     }
 
-    @GetMapping("/{data")
-    PontoInteresse buscaPonto(@PathVariable double[] data){
-        return new PontoInteresse();
+    @GetMapping("/{id}")
+    ResponseEntity<PontoInteresse> buscaPonto(@PathVariable int id){
+
+        return ResponseEntity.of( this.pontoRepository.findById(id));
     }
 }

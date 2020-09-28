@@ -1,7 +1,7 @@
 package com.fliperama.projections;
 
 public interface Coordenadas {
-    int getIdPonto();
+    int getId();
     double getLat();
     double getLng();
 }
